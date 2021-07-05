@@ -16,12 +16,14 @@ public class StudentConfig {
     @Bean
     CommandLineRunner commandLineRunner(StudentRepository studentRepository) {
         return args -> {
-            Student atm = new Student("Atm", "atm@at.com", LocalDate.of(2000, JANUARY, 4), 21);
-            Student ana = new Student(1L, "Ana", "ana@at.com", LocalDate.of(2000, MARCH, 2), 21);
+            Student atm = new Student("Atm", "atm@at.com", LocalDate.of(2000, JANUARY, 4));
+            Student ana = new Student( "Ana", "ana@at.com", LocalDate.of(2000, MARCH, 2));
             List<Student> arr = new ArrayList<Student>();
             arr.add(atm);
             arr.add(ana);
-            studentRepository.saveAll(arr);
+//            studentRepository.saveAll(arr);
+            studentRepository.save(atm);
+            studentRepository.save(ana);
         };
     }
 }
